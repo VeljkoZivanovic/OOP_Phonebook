@@ -94,8 +94,8 @@ public class UserInterface {
         if (contacts.isEmpty()) {
             System.out.println("No contacts found with the name: " + name);
         } else {
-            for (Contact contact : contacts) {
-                System.out.println(contact);
+            for (Contact c : contacts) {
+                System.out.println(c);
             }
         }
     }
@@ -122,8 +122,8 @@ public class UserInterface {
             System.out.println("The phonebook is empty.");
         }
         else{
-            for (Contact contact : phoneDirectory.getContacts()) {
-                System.out.println(contact);
+            for (Contact c : phoneDirectory.getContacts()) {
+                System.out.println(c);
             }
         }
     }
@@ -157,7 +157,7 @@ public class UserInterface {
         Contact contact = phoneDirectory.findContactByPhoneNumber(phoneNumber);
 
         if (contact == null) {
-            System.out.println("Contact not found.");
+            System.out.println("Contact with number: " + phoneNumber + " not found.");
             return;
         }
 
@@ -204,8 +204,13 @@ public class UserInterface {
     }
 
     private void clearPhonebook() {
-        phoneDirectory.clearContacts();
-        System.out.println("Phonebook has been cleared.");
+        if(phoneDirectory.getContacts().isEmpty()){
+            System.out.println("The phonebook is already empty.");
+        }
+        else {
+            phoneDirectory.clearContacts();
+            System.out.println("Phonebook has been cleared.");
+        }
     }
 
 }

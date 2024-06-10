@@ -52,7 +52,7 @@ public class PhoneDirectory {
 
     public void removeContact(String phoneNumber) {
         if(contacts.isEmpty()){
-            System.out.println("No contacts found with the number: " + phoneNumber);
+            System.out.println("No contacts in the phonebook!");
         }
         else{
             for (Contact c: contacts) {
@@ -60,6 +60,7 @@ public class PhoneDirectory {
                     contacts.remove(c);
                     System.out.println("Contact removed successfully!");
                 }
+                else System.out.println("No contacts found with the number: " + phoneNumber);
 
             }
         }
